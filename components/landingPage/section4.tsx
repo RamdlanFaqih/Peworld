@@ -12,17 +12,50 @@ import { Open_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-import Img2 from "@/public/img/img2.png";
-import Ramfaq from "@/public/img/ramfaq.png"
-import TomHardy from "@/public/img/tomHardy.jpg"
-import FrankFlores from "@/public/img/frankFlores.jpg"
+interface TestimonialsProps {
+  name: string;
+  job: String;
+  image: string;
+  comment: String;
+}
+
+const testimonials: TestimonialsProps[] = [
+  {
+    name: "Ramdlan Faqih",
+    job: "Fullstack Developer",
+    comment:
+      "Sebelum daftar Peworld, saya susah dapat pekerjaan. Setelah daftar saya langsung dapat pekerjaan",
+    image: "/img/ramfaq.png",
+  },
+  {
+    name: "Tom Hardy",
+    job: "Fullstack Developer",
+    comment:
+      "Sebelum daftar Peworld, saya susah dapat pekerjaan. Setelah daftar saya langsung dapat pekerjaan",
+    image: "/img/tomHardy.jpg",
+  },
+  {
+    name: "Frank Flores",
+    job: "Fullstack Developer",
+    comment:
+      "Sebelum daftar Peworld, saya susah dapat pekerjaan. Setelah daftar saya langsung dapat pekerjaan",
+    image: "/img/frankFlores.jpg",
+  },
+  {
+    name: "Natasha",
+    job: "Fullstack Developer",
+    comment:
+      "Sebelum daftar Peworld, saya susah dapat pekerjaan. Setelah daftar saya langsung dapat pekerjaan",
+    image: "/img/img2.png",
+  },
+];
 
 const font = Open_Sans({
   subsets: ["latin"],
   weight: ["600"],
 });
 
-export default function Section4() {
+export const Section4 = () => {
   return (
     <div className="flex flex-wrap min-h-screen items-center justify-center">
       <div className="w-full">
@@ -30,64 +63,26 @@ export default function Section4() {
           Their opinion about peworld
         </h1>
         <div className="flex items-center justify-center mt-10">
-          <Carousel>
+          <Carousel opts={{
+            align: "start"
+          }} className="w-full max-w-5xl">
             <CarouselContent>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CardWrapper
-                  name="Ramdlan Faqih"
-                  job="Fullstack Developer"
-                  comment="Sebelum daftar Peworld, saya susah dapat pekerjaan. Setelah daftar saya langsung dapat pekerjaan"
-                >
-                  <Image
-                    src={Ramfaq}
-                    alt="Ramdlan Faqih Profile"
-                    layout="fill"
-                    className="rounded-full"
-                  />
-                </CardWrapper>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CardWrapper
-                  name="Frank Flores"
-                  job="Hiring Manager"
-                  comment="Peworld memudahkan saya untuk mencari orang yang tepat untuk bisa bergabung di perusahaan"
-                >
-                  <Image
-                    src={FrankFlores}
-                    alt="Frank Flores Profile"
-                    layout="fill"
-                    className="rounded-full object-cover"
-                  />
-                </CardWrapper>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CardWrapper
-                  name="Tom Hardy"
-                  job="Frontend Developer"
-                  comment="Saya hanya perlu menampilkan Portofolio dan Pengalaman kerja saya di Peworld. Setelah itu saya mendapatkan banyak tawaran pekerjaan"
-                >
-                  <Image
-                    src={TomHardy}
-                    alt="Tom Hardy Profile"
-                    layout="fill"
-                    className="rounded-full object-cover"
-                  />
-                </CardWrapper>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <CardWrapper
-                  name="Natasha"
-                  job="Web Developer"
-                  comment="Platform terbaik untuk menghubungkan Pencari Kerja dan Perekrut"
-                >
-                  <Image
-                    src={Img2}
-                    alt="2323"
-                    layout="fill"
-                    className="rounded-full"
-                  />
-                </CardWrapper>
-              </CarouselItem>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <CardWrapper
+                    name={testimonial.name}
+                    job={testimonial.job}
+                    comment={testimonial.comment}
+                  >
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill={true}
+                      className="rounded-full object-cover"
+                    />
+                  </CardWrapper>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />

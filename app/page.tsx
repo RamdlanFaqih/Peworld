@@ -1,8 +1,9 @@
-import Section1 from "@/components/landingPage/section1";
-import Section2 from "@/components/landingPage/section2";
-import Section3 from "@/components/landingPage/section3";
-import Section4 from "@/components/landingPage/section4";
-import Section5 from "@/components/landingPage/section5";
+import { Footer } from "@/components/footer";
+import { Section1 } from "@/components/landingPage/section1";
+import { Section2 } from "@/components/landingPage/section2";
+import { Section3 } from "@/components/landingPage/section3";
+import { Section4 } from "@/components/landingPage/section4";
+import { Section5 } from "@/components/landingPage/section5";
 
 export default function LandingPage() {
   return (
@@ -24,6 +25,9 @@ export default function LandingPage() {
       <div className="container">
         <Section5 />
         </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ const font = Open_Sans({
   weight: ["600"],
 });
 
-export default function Section2() {
+export const Section2 = () => {
   return (
     <div className="flex flex-wrap min-h-screen items-center justify-center">
       <div className="w-full px-4 lg:w-1/2">

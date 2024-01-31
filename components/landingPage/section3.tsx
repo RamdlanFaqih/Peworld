@@ -24,7 +24,7 @@ const skills: Skill[] = [
   { skill: "10 + Bahasa lainnya" },
 ];
 
-export default function Section3() {
+export const Section3 = () => {
   return (
     <div className="flex flex-wrap min-h-screen items-center justify-center">
       <div className="w-full px-4 lg:w-1/2">
